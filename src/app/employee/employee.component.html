@@ -1,0 +1,119 @@
+<h3>Hello, {{getCurrentUser()|capitalizeFirst}}</h3>
+<div class="row">
+	<div class="col-md-5">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="text-center">Allocated asset</h4> 
+			</div>
+			<div class="panel-body">
+				<ng-container *ngIf="allocationDetails.currentAsset; else elseTemplate;">
+					<table class="table table-hover">
+							<tbody>
+								<tr>
+									<td align="center" class="table-label">
+										Id
+									</td>
+									<td align="center">
+										{{allocationDetails.currentAsset.id}}
+									</td>
+								</tr>
+								<tr>
+									<td align="center" class="table-label">
+										Name
+									</td>
+									<td align="center">
+										{{allocationDetails.currentAsset.name}}
+									</td>
+								</tr>
+								<tr>
+									<td align="center" class="table-label">
+										Type
+									</td>
+									<td align="center">
+										{{allocationDetails.currentAsset.type}}
+									</td>
+								</tr>
+								<tr>
+									<td align="center" class="table-label">
+										Actual cost
+									</td>
+									<td align="center">
+										{{allocationDetails.currentAsset.actualCost}}
+									</td>
+								</tr>
+								<tr>
+									<td align="center" class="table-label">
+										Repair cost
+									</td>
+									<td align="center">
+										{{allocationDetails.currentAsset.totalRepairCost}}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+				</ng-container>
+				<ng-template #elseTemplate>
+					No asset allocated
+				</ng-template>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-md-offset-1">
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="text-center">History of Assets</h4>
+			</div>
+			<div class="panel-body">
+					<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							Id
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Type
+						</th>
+						<th>
+							Actual Cost
+						</th>
+						<th>
+							Repair Cost
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let asset of allocationDetails.myAssets">
+						<td>
+							{{asset.id}}
+						</td>
+						<td>
+							{{asset.name}}
+						</td>
+						<td>
+							{{asset.type}}
+						</td>
+						<td>
+							{{asset.actualCost}}
+						</td>
+						<td>
+							{{asset.totalRepairCost}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			</div>
+		</div>
+	
+	</div>
+
+</div>
+
+
+
+
+

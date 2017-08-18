@@ -1,0 +1,97 @@
+<h3>All Assets</h3>
+  
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Id
+			</th>
+			<th>
+				Name
+			</th>
+			<th>
+				Type
+			</th> 
+      <th>
+				Allocated To
+			</th>
+			<th>
+				Allocation History
+			</th>
+			<th>
+				Actual Cost
+			</th>
+			<th>
+				Repair Cost
+			</th>
+      <th>
+			</th>
+			<th>
+			</th>
+      
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let asset of allAssets; let i = index">
+			<td>
+				{{asset.id}}
+			</td>
+
+			<td *ngIf="asset.id == editRowId"> 
+				<input type="text" [(ngModel)]="asset.name">
+			</td>
+			<td *ngIf="asset.id !== editRowId" >
+				{{asset.name}}
+			</td>
+
+			<td *ngIf="asset.id == editRowId"> 
+				<input type="text" [(ngModel)]="asset.type">
+				</td>
+			<td *ngIf="asset.id !== editRowId" >
+				{{asset.type}}
+			</td>
+
+			<td *ngIf="asset.id == editRowId">
+				<select [(ngModel)]="asset.assignedTo.name">
+					<option *ngFor="let username of allEmployees" [value]="username">{{username}}</option>
+				</select> 
+				
+			</td>
+			<td *ngIf="asset.id !== editRowId" >
+				<ng-container *ngIf="asset.assignedTo; else elseTemplate">
+      				{{asset.assignedTo.name}}
+    			</ng-container>
+    			<ng-template #elseTemplate>
+      				Not allocated
+    			</ng-template>
+			</td>
+
+			<td >
+				{{asset.allocationHistory}}
+			</td>
+
+			<td *ngIf="asset.id == editRowId"> 
+				<input type="text" [(ngModel)]="asset.actualCost">
+				</td>
+			<td *ngIf="asset.id !== editRowId" >
+				{{asset.actualCost}}
+			</td>
+
+			<td *ngIf="asset.id == editRowId"> 
+				<input type="text" [(ngModel)]="asset.totalRepairCost">
+				</td>
+			<td *ngIf="asset.id !== editRowId" >
+				{{asset.totalRepairCost}}
+			</td>
+
+      		<td>
+				<button *ngIf="asset.id == editRowId" type="button" (click)="update(i)" class="btn btn-warning" >Done</button> 
+				<button *ngIf="asset.id !== editRowId" type="button" (click)="toggle(asset)" class="btn btn-info">Edit</button>
+			</td>
+			
+			<td>
+				<button type="button"  (click)="removeAsset(i)" class="btn btn-default">Remove</button>
+			</td>
+		</tr>
+	</tbody>
+</table> 

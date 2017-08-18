@@ -1,3 +1,26 @@
-<h1>
-  {{title}}
-</h1>
+ <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand">
+        ASSET MANAGER
+      </div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#logout-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="logout-collapse">
+      
+        <button *ngIf="isLoggedIn()" (click)="logout()" class="btn btn-danger navbar-btn navbar-right margin-right">Logout</button>
+      
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+<router-outlet>
+</router-outlet>
+</div>
+
+
