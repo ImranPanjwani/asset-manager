@@ -1,6 +1,21 @@
 # AssetManager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+An asset manager in which an employee can login to see his asset details and an admin can manage the assets for the employee.
+
+Credentials for employee-
+  
+  username - rajesh
+  
+  password - rajesh
+  
+
+
+Credentials for admin-
+  
+  username - admin
+  
+  password - admin
+
 
 ## Development server
 
