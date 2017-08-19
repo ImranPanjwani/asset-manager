@@ -2,6 +2,9 @@
 
 An asset manager in which an employee can login to see his asset details and an admin can manage the assets for the employee.
 
+
+Run 'npm install' and then 'ng serve'. App will be hosted at http://localhost:4200 
+
 Credentials for employee-
   
   username - rajesh
